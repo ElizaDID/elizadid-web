@@ -1,0 +1,467 @@
+/* PrivacyVisualizer.css */
+.privacy-visualizer {
+    width: 100%;
+    background: rgba(10, 10, 35, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+  }
+  
+  .privacy-header {
+    padding: 20px;
+    background: rgba(249, 115, 22, 0.15);
+    border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+  }
+  
+  .privacy-header h3 {
+    color: #F97316;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+  
+  .task-description {
+    color: #B0B0C0;
+    font-size: 0.9rem;
+  }
+  
+  .visualization-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+    gap: 15px;
+    overflow: hidden;
+  }
+  
+  /* User Section */
+  .user-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .section-label {
+    color: #D0D0E0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .data-container {
+    padding: 10px;
+    background: rgba(10, 10, 30, 0.5);
+    border-radius: 6px;
+    position: relative;
+  }
+  
+  .encrypted-data {
+    font-family: monospace;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .encrypted-data.show {
+    opacity: 1;
+  }
+  
+  .data-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    justify-content: center;
+  }
+  
+  .data-bit {
+    display: inline-block;
+    width: 12px;
+    height: 16px;
+    text-align: center;
+    color: #F97316;
+    font-size: 0.8rem;
+  }
+  
+  .actual-value {
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px;
+    background: rgba(249, 115, 22, 0.1);
+    border-radius: 4px;
+  }
+  
+  .value-label {
+    color: #B0B0C0;
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+  
+  .value-amount {
+    color: #F97316;
+    font-weight: 600;
+  }
+  
+  .user-action {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(10px);
+  }
+  
+  .user-action.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .action-button {
+    background: #F97316;
+    color: #0A0A23;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  }
+  
+  /* ZKP Process Section */
+  .zkp-process {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .zkp-process.active {
+    opacity: 1;
+  }
+  
+  .zkp-steps {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .zkp-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .zkp-step.active {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: calc(var(--index, 0) * 0.2s);
+  }
+  
+  .zkp-step:nth-child(1) {
+    --index: 1;
+  }
+  
+  .zkp-step:nth-child(2) {
+    --index: 2;
+  }
+  
+  .zkp-step:nth-child(3) {
+    --index: 3;
+  }
+  
+  .step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .step-description {
+    color: #B0B0C0;
+    font-size: 0.85rem;
+  }
+  
+  .zkp-animation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  
+  .zkp-animation.active {
+    opacity: 1;
+  }
+  
+  .circuit-visualization {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .circuit-svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .node {
+    fill: #1A1A3A;
+    stroke: #F97316;
+    stroke-width: 2;
+    filter: url(#glow);
+  }
+  
+  .node.input-node {
+    fill: rgba(249, 115, 22, 0.2);
+  }
+  
+  .node.output-node {
+    fill: rgba(22, 163, 74, 0.2);
+    stroke: #16A34A;
+  }
+  
+  .connection {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 2;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    opacity: 0.7;
+  }
+  
+  .connection.animate {
+    animation: drawLine 1s forwards;
+  }
+  
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .node-label {
+    fill: #B0B0C0;
+    font-size: 8px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+  }
+  
+  .mathematical-formula {
+    margin-top: 20px;
+    background: rgba(10, 10, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px rgba(249, 115, 22, 0.3);
+    }
+    to {
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.8);
+    }
+  }
+  
+  .formula-text {
+    color: #F97316;
+    font-family: "Courier New", monospace;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Verification Section */
+  .agent-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .verification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 120px;
+  }
+  
+  .verification-process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .verification-animation {
+    margin: 10px 0;
+  }
+  
+  .checkmark {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .checkmark-circle {
+    stroke: #16A34A;
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+  
+  .checkmark-check {
+    stroke: #16A34A;
+    stroke-width: 2;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    fill: none;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+  }
+  
+  .verification-text {
+    color: #16A34A;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .verification-details {
+    background: rgba(10, 10, 30, 0.5);
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .detail-label {
+    color: #B0B0C0;
+    font-size: 0.9rem;
+  }
+  
+  .detail-value {
+    color: #D0D0E0;
+    font-size: 0.9rem;
+    font-family: monospace;
+  }
+  
+  .detail-value.success {
+    color: #16A34A;
+    font-weight: 600;
+  }
+  
+  .detail-value.hidden {
+    color: #F97316;
+    font-weight: 600;
+  }
+  
+  .access-granted {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.5s ease forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .access-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .access-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .access-text {
+    color: #16A34A;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .access-subtext {
+    color: #B0B0C0;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .privacy-visualizer {
+      height: 600px;
+    }
+    
+    .privacy-header h3 {
+      font-size: 1.1rem;
+    }
+    
+    .zkp-steps {
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .circuit-visualization {
+      height: 150px;
+    }
+    
+    .mathematical-formula {
+      padding: 8px 12px;
+    }
+    
+    .formula-text {
+      font-size: 0.8rem;
+    }
+    
+    .data-bit {
+      width: 10px;
+      height: 14px;
+      font-size: 0.7rem;
+    }
+  }

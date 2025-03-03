@@ -1,0 +1,186 @@
+/* RoadmapPrototype2.css */
+.roadmap-section {
+    padding: 120px 30px;
+    background: #1A1A3A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .roadmap-phase {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .phase-indicator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .phase-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #F97316;
+    color: #1A1A3A;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-radius: 50%;
+  }
+  
+  .phase-line {
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #F97316, rgba(249, 115, 22, 0.1));
+    margin: 0 20px;
+  }
+  
+  .phase-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #F97316;
+  }
+  
+  .prototype-container {
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .prototype-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .prototype-visual {
+    flex: 1;
+    min-height: 550px;
+  }
+  
+  .prototype-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .prototype-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #F97316;
+    margin-bottom: 20px;
+  }
+  
+  .prototype-description {
+    font-size: 1.1rem;
+    color: #B0B0C0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .prototype-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-shrink: 0;
+  }
+  
+  .feature-icon.encrypted {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F97316'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .feature-icon.zkp {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F97316'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .feature-icon.permission {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F97316'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .feature-text h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #D0D0E0;
+    margin-bottom: 5px;
+  }
+  
+  .feature-text p {
+    font-size: 0.95rem;
+    color: #B0B0C0;
+  }
+  
+  .prototype-highlight {
+    padding: 20px;
+    background: rgba(249, 115, 22, 0.1);
+    border-left: 3px solid #F97316;
+    border-radius: 4px;
+  }
+  
+  .prototype-highlight p {
+    color: #D0D0E0;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .prototype-highlight p:last-child {
+    margin-bottom: 0;
+  }
+  
+  @keyframes stroke {
+    100% { stroke-dashoffset: 0; }
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .roadmap-section {
+      padding: 80px 20px;
+    }
+    
+    .prototype-container {
+      flex-direction: column;
+    }
+    
+    .prototype-visual {
+      margin-bottom: 30px;
+    }
+    
+    .prototype-title {
+      font-size: 1.8rem;
+    }
+    
+    .prototype-description {
+      font-size: 1rem;
+    }
+    
+    .phase-number {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+    
+    .phase-title {
+      font-size: 1.5rem;
+    }
+  }
